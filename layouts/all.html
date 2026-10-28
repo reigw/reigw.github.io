@@ -4,10 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ .Title }}</title>
+    {{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
     <link rel="stylesheet" href="{{ "css/palette.css" | relURL }}">
+    {{ if .IsHome }}
+      {{ with resources.Get "css/project.css" | minify | fingerprint }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+      {{ end }}
+    {{ end }}
     {{ partial "favicon.html" . }}
   </head>
   <body>
-    {{ .Content }}
+    {{ if .IsHome }}
+      {{ partial "project.html" . }}
+    {{ else }}
+      {{ .Content }}
+    {{ end }}
   </body>
 </html>
