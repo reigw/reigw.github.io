@@ -1,0 +1,4 @@
+{{- /* Keep attribution in attributes because HTML minification removes SVG comments. */ -}}
+{{- $icon := resources.Get (printf "vendor/fontawesome-7.3.1/svgs/solid/%s.svg" .name) -}}
+{{- $attributes := printf `<svg class="fa-icon %s" width="1em" height="1em" aria-hidden="true" focusable="false" data-attribution="Font Awesome Free 7.3.1 by Fonticons, Inc. (https://fontawesome.com)" data-license="https://creativecommons.org/licenses/by/4.0/" ` .class -}}
+{{- replace $icon.Content "<svg " $attributes | safeHTML -}}

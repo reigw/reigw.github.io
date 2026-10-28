@@ -197,7 +197,13 @@ h1 span {
   margin-bottom: 32px;
 }
 
+.fa-icon {
+  vertical-align: -0.125em;
+}
+
 .card-icon {
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   color: var(--accent-gold);
 }
