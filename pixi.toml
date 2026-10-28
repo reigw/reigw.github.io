@@ -1,0 +1,12 @@
+[workspace]
+authors = ["Vorschreibung <vorschreibung@gmail.com>"]
+channels = ["conda-forge"]
+name = "reigw-github-pages"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+"serve" = { "cmd" = ["hugo", "server"] }
+
+[dependencies]
+"hugo" = "0.169.0.*"
